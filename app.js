@@ -37,4 +37,20 @@ function atualizarLista() {
         li.textContent = amigo;
         listaAmigos.appendChild(li);
     });
+
+    // Função para atualizar a lista de amigos na interface
+function atualizarLista() {
+    // Obter o elemento da lista
+    const listaAmigos = document.getElementById("listaAmigos");
+
+    // Limpar a lista existente
+    listaAmigos.innerHTML = "";
+
+    // Percorrer o array e adicionar elementos à lista
+    for (let i = 0; i < amigos.length; i++) {
+        const li = document.createElement("li"); // Criar elemento de lista (<li>)
+        li.textContent = amigos[i]; // Adicionar o nome do amigo ao item
+        listaAmigos.appendChild(li); // Adicionar o item à lista na interface
+    }
+}
 }
