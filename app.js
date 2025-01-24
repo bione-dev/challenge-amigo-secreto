@@ -1,12 +1,12 @@
-// armazenar os nomes dos amigos em um array
+// Armazenar os nomes dos amigos em um array
 let amigos = [];
 
-// testando a inicialização por Log
+// Testando a inicialização por Log
 console.log("Array inicializado:", amigos);
 
-// adicionar um amigo por função
+// Adicionar um amigo por função
 function adicionarAmigo() {
-    // obter campo de entrada
+    // Obter campo de entrada
     const input = document.getElementById("amigo");
     const nome = input.value.trim(); 
 
@@ -26,19 +26,7 @@ function adicionarAmigo() {
     input.value = "";
 }
 
-// atualizar a lista de amigos na interface por função
-function atualizarLista() {
-    const listaAmigos = document.getElementById("listaAmigos");
-    listaAmigos.innerHTML = ""; // Limpa a lista atual
-
-    // Adiciona cada amigo como um item na lista
-    amigos.forEach((amigo) => {
-        const li = document.createElement("li");
-        li.textContent = amigo;
-        listaAmigos.appendChild(li);
-    });
-
-    // Função para atualizar a lista de amigos na interface
+// Atualizar a lista de amigos na interface por função
 function atualizarLista() {
     // Obter o elemento da lista
     const listaAmigos = document.getElementById("listaAmigos");
@@ -53,4 +41,22 @@ function atualizarLista() {
         listaAmigos.appendChild(li); // Adicionar o item à lista na interface
     }
 }
+
+// Função para sortear um amigo
+function sortearAmigo() {
+    // Validar se há amigos disponíveis no array
+    if (amigos.length === 0) {
+        alert("A lista está vazia. Adicione amigos antes de sortear.");
+        return;
+    }
+
+    // Gerar um índice aleatório
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    // Obter o nome sorteado
+    const amigoSorteado = amigos[indiceAleatorio];
+
+    // Mostrar o resultado na interface
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `O amigo sorteado é: <strong>${amigoSorteado}</strong>`;
 }
